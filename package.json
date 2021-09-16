@@ -1,23 +1,30 @@
 {
-    "name": "",
-    "private": true,
-    "scripts": {
-        "postinstall": "node scripts/install.js",
-        "launch": "node scripts/launch.js",
-        "build": "run-p build:*",
-        "build:panorama": "tsc --project src/panorama/tsconfig.json",
-        "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
-        "dev": "run-p dev:*",
-        "dev:panorama": "tsc --project src/panorama/tsconfig.json --watch",
-        "dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch"
-    },
-    "devDependencies": {
-        "@moddota/dota-lua-types": "^4.12.1",
-        "@moddota/panorama-types": "^1.11.0",
-        "find-steam-app": "^1.0.2",
-        "fs-extra": "^9.0.0",
-        "npm-run-all": "^4.1.5",
-        "typescript": "^4.2.3",
-        "typescript-to-lua": "^1.0.0"
-    }
+	"name": "league_of_elites_3v3_dota2",
+	"private": true,
+	"scripts": {
+		"_postinstall": "node scripts/install.js",
+		"launch": "node scripts/launch.js",
+		"build": "run-p build:*",
+		"build:panorama": "tsc --project src/panorama/tsconfig.json",
+		"build:vscripts": "tstl --project src/vscripts/tsconfig.json",
+		"dev": "run-p dev:*",
+		"dev:panorama": "tsc --project src/panorama/tsconfig.json --watch",
+		"dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch",
+		"lint": "eslint ."
+	},
+	"devDependencies": {
+		"@moddota/dota-lua-types": "^4.12.1",
+		"@moddota/panorama-types": "^1.11.0",
+		"find-steam-app": "^1.0.2",
+		"fs-extra": "^9.0.0",
+		"npm-run-all": "^4.1.5",
+		"typescript": "^4.4.3",
+		"typescript-to-lua": "^1.0.0",
+		"eslint": "^7.32.0",
+		"eslint-plugin-import": "^2.24.2",
+		"eslint-plugin-jsdoc": "^36.1.0",
+		"eslint-plugin-prefer-arrow": "1.2.3",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1"
+	}
 }
