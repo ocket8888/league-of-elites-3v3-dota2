@@ -1,10 +1,23 @@
 import { BaseAbility, registerAbility } from "../../../lib/dota_ts_adapter";
 
+/**
+ * This is a new ability that is basically just a copy of Meepo's "Earthbind" ability.
+ */
 @registerAbility()
 export class meepo_earthbind_ts_example extends BaseAbility {
-	particle?: ParticleID;
+	/**
+	 * Holds a reference to the particle for the ability's projectile.
+	 */
+	public particle?: ParticleID;
 
-	public GetCooldown() {
+	/**
+	 * Calculates the cooldown for the ability.
+	 *
+	 * Units with Meepo's Talent for lowering Earthbind's cooldown get a lower cooldown.
+	 *
+	 * @returns The cooldown of the ability.
+	 */
+	public GetCooldown(): number {
 		let cooldown = this.GetSpecialValueFor("cooldown");
 		if (IsServer()) {
 			const talent = this.GetCaster().FindAbilityByName("special_bonus_unique_meepo_3");
@@ -16,7 +29,12 @@ export class meepo_earthbind_ts_example extends BaseAbility {
 		return cooldown;
 	}
 
-	public OnAbilityPhaseStart() {
+	/**
+	 * Called when the ability cast starts (at the beginning of the cast point duration).
+	 *
+	 * @returns Whether the cast succeeds.
+	 */
+	public OnAbilityPhaseStart(): true {
 		if (IsServer()) {
 			this.GetCaster().EmitSound("Hero_Meepo.Earthbind.Cast");
 		}
@@ -24,11 +42,17 @@ export class meepo_earthbind_ts_example extends BaseAbility {
 		return true;
 	}
 
-	public OnAbilityPhaseInterrupted() {
+	/**
+	 * If the cast is interrupted, this handler will be called.
+	 */
+	public OnAbilityPhaseInterrupted(): void {
 		this.GetCaster().StopSound("Hero_Meepo.Earthbind.Cast");
 	}
 
-	public OnSpellStart() {
+	/**
+	 * Called at the end of the cast point duration to start the spell's effects.
+	 */
+	public OnSpellStart(): void {
 		const caster = this.GetCaster();
 		const point = this.GetCursorPosition();
 		const projectileSpeed = this.GetSpecialValueFor("speed");
@@ -51,23 +75,30 @@ export class meepo_earthbind_ts_example extends BaseAbility {
 		ProjectileManager.CreateLinearProjectile({
 			Ability: this,
 			EffectName: "",
-			vSpawnOrigin: caster.GetAbsOrigin(),
-			fDistance: distance,
-			fStartRadius: radius,
-			fEndRadius: radius,
 			Source: caster,
 			bHasFrontalCone: false,
-			iUnitTargetTeam: UnitTargetTeam.NONE,
-			iUnitTargetFlags: UnitTargetFlags.NONE,
-			iUnitTargetType: UnitTargetType.NONE,
-			vVelocity: (direction * projectileSpeed) as Vector,
 			bProvidesVision: true,
+			fDistance: distance,
+			fEndRadius: radius,
+			fStartRadius: radius,
+			iUnitTargetFlags: UnitTargetFlags.NONE,
+			iUnitTargetTeam: UnitTargetTeam.NONE,
+			iUnitTargetType: UnitTargetType.NONE,
 			iVisionRadius: radius,
 			iVisionTeamNumber: caster.GetTeamNumber(),
+			vSpawnOrigin: caster.GetAbsOrigin(),
+			vVelocity: (direction * projectileSpeed) as Vector,
 		});
 	}
 
-	public OnProjectileHit(_target: CDOTA_BaseNPC, location: Vector) {
+	/**
+	 * Called when the ability projectile collides with its target.
+	 *
+	 * @param _target The target that was hit by the projectile.
+	 * @param location The coordinates at which the collision occurred.
+	 * @returns Unknown.
+	 */
+	public OnProjectileHit(_target: CDOTA_BaseNPC, location: Vector): true {
 		const caster = this.GetCaster();
 		const duration = this.GetSpecialValueFor("duration");
 		const radius = this.GetSpecialValueFor("radius");
@@ -89,8 +120,8 @@ export class meepo_earthbind_ts_example extends BaseAbility {
 			unit.EmitSound("Hero_Meepo.Earthbind.Target");
 		}
 
-		ParticleManager.DestroyParticle(this.particle!, false);
-		ParticleManager.ReleaseParticleIndex(this.particle!);
+		ParticleManager.DestroyParticle(this.particle as ParticleID, false);
+		ParticleManager.ReleaseParticleIndex(this.particle as ParticleID);
 
 		return true;
 	}

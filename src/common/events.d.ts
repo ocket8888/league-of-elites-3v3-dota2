@@ -11,19 +11,27 @@
  *     to change them back into arrays yourself! See 'toArray()' in src/panorama/hud.ts
  */
 
-// To declare an event for use, add it to this table with the type of its data
+/**
+ * To declare an event for use, add it to this table with the type of its data.
+ */
 interface CustomGameEventDeclarations {
-	example_event: ExampleEventData,
-	ui_panel_closed: UIPanelClosedEventData
+	example_event: ExampleEventData;
+	ui_panel_closed: UIPanelClosedEventData;
 }
 
-// Define the type of data sent by the example_event event
+/**
+ * Define the type of data sent by the example_event event.
+ */
 interface ExampleEventData {
 	myNumber: number;
 	myBoolean: boolean;
 	myString: string;
-	myArrayOfNumbers: number[]
+	myArrayOfNumbers: number[];
 }
 
-// This event has no data
+/**
+ * This event has no data.
+ */
+// The point of this event is its unique type; it just has no data to convey.
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface UIPanelClosedEventData {}
