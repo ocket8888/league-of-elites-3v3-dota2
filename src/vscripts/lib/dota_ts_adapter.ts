@@ -7,7 +7,7 @@ export interface BaseAbility extends CDOTA_Ability_Lua {
 	____constructor(): void;
 }
 /**
- * Unknown - possibly related to interface of the same name.
+ * This merges with the interface of the same name.
  */
 export class BaseAbility {}
 
@@ -16,7 +16,7 @@ export class BaseAbility {}
  */
 export interface BaseItem extends CDOTA_Item_Lua {}
 /**
- * Unknown - possibly related to interface of the same name.
+ * This merges with the interface of the same name.
  */
 export class BaseItem {}
 
@@ -27,7 +27,7 @@ export interface BaseModifier extends CDOTA_Modifier_Lua {
 	____constructor(): void;
 }
 /**
- * Unknown - possibly related to interface of the same name.
+ * This merges with the interface of the same name.
  */
 export class BaseModifier {
 	/**
@@ -59,7 +59,7 @@ export class BaseModifier {
  */
 export interface BaseModifierMotionHorizontal extends CDOTA_Modifier_Lua_Horizontal_Motion {}
 /**
- * Unknown - possibly related to interface of the same name.
+ * This merges with the interface of the same name.
  */
 export class BaseModifierMotionHorizontal extends BaseModifier {}
 
@@ -68,7 +68,7 @@ export class BaseModifierMotionHorizontal extends BaseModifier {}
  */
 export interface BaseModifierMotionVertical extends CDOTA_Modifier_Lua_Vertical_Motion {}
 /**
- * Unknown - possibly related to interface of the same name.
+ * This merges with the interface of the same name.
  */
 export class BaseModifierMotionVertical extends BaseModifier {}
 
@@ -77,7 +77,7 @@ export class BaseModifierMotionVertical extends BaseModifier {}
  */
 export interface BaseModifierMotionBoth extends CDOTA_Modifier_Lua_Motion_Both {}
 /**
- * Unknown - possibly related to interface of the same name.
+ * This merges with the interface of the same name.
  */
 export class BaseModifierMotionBoth extends BaseModifier {}
 /* eslint-enable @typescript-eslint/no-extraneous-class */
