@@ -1,0 +1,5 @@
+"AddonInfo"
+
+{
+	"IsPlayable"	"1"
+}
