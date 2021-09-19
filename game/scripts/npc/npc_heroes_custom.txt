@@ -9,8 +9,8 @@
 		"AbilityTalentStart"                     "10"
 
 		"Ability1"        	"gorgutz_grapplin_klaw"
-		"Ability2"			"spinnin_klaw"
-		"Ability3"			"meepo_earthbind_ts_example"
+		"Ability2"			""
+		"Ability3"			""
 		"Ability4"        	""
 		"Ability5"			""
 		"Ability6"			""

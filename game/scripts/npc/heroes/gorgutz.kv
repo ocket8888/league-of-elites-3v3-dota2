@@ -1,71 +1,64 @@
 "DOTAAbilities"
 {
-    //=================================================================================================================
-    // Gorgutz: Grapplin' Klaw
-    //=================================================================================================================
-    "gorgutz_grapplin_klaw"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "abilities/heroes/gorgutz/grapplin_klaw.lua"
-        "AbilityTextureName"            "meepo_earchbind"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
-        "FightRecapLevel"               "1"
-        "AbilitySound"                  "Hero_Meepo.Earthbind.Cast"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
-        "MaxLevel"                      "4"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-        "AbilityDamage"                 "100 200 300 400"
+	//=================================================================================================================
+	// Gorgutz: Grapplin' Klaw
+	//=================================================================================================================
+	"gorgutz_grapplin_klaw"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/heroes/gorgutz/grapplin_klaw"
+		"AbilityTextureName"            "meepo_earthbind"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"               "1"
+		"AbilitySound"                  "Hero_Meepo.Earthbind.Cast"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"                      "4"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityDamage"                 "100 200 300 400"
 
 
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "1250"
-        "AbilityCastPoint"              "0.3"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"              "1250"
+		"AbilityCastPoint"              "0.3"
 
-        // Time
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "15"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"               "15"
 
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "90 110 130 150"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"               "90 110 130 150"
 
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration"              "2.0"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "220"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "speed"                 "857"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "tooltip_range"         "1250"
-            }
-            // Adding cooldown and praying this gets synced
-            "05"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "cooldown"              "2"
-                "LinkedSpecialBonus"    "special_bonus_unique_meepo3"
-            }
-        }
-        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
-    }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_FLOAT"
+				"duration"              "2.0"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"                "220"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"speed"                 "857"
+			}
+			"04"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"tooltip_range"         "1250"
+			}
+		}
+		"AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+	}
 }
