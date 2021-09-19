@@ -138,13 +138,13 @@ export class GameMode {
 	 */
 	private OnNpcSpawned(event: NpcSpawnedEvent): void {
 		// After a hero unit spawns, apply modifier_panic for 8 seconds
-		const unit = EntIndexToHScript(event.entindex) as CDOTA_BaseNPC; // Cast to npc since this is the 'npc_spawned' event
+		// const unit = EntIndexToHScript(event.entindex) as CDOTA_BaseNPC; // Cast to npc since this is the 'npc_spawned' event
 		// Give all real heroes (not illusions) the meepo_earthbind_ts_example spell
-		if (unit.IsRealHero()) {
-			if (!unit.HasAbility("meepo_earthbind_ts_example")) {
-				// Add lua ability to the unit
-				unit.AddAbility("meepo_earthbind_ts_example");
-			}
-		}
+		// if (unit.IsRealHero()) {
+		// 	if (!unit.HasAbility("meepo_earthbind_ts_example") && !unit.HasAbility("gorgutz_grapplin_klaw")) {
+		// 		// Add lua ability to the unit
+		// 		unit.AddAbility("meepo_earthbind_ts_example");
+		// 	}
+		// }
 	}
 }
